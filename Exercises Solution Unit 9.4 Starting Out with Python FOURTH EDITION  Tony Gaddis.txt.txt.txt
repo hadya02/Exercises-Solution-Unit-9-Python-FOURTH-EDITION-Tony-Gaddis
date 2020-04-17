@@ -1,0 +1,82 @@
+ Pickled Vegetables
+Write a program that keeps vegetable names and prices in a dictionary as key-value pairs.
+The program should display a menu that lets the user see a list of all vegetables and their
+prices, add a new vegetable and price, change the price of an existing vegetable, and delete
+an existing vegetable and price. The program should pickle the dictionary and save it to a
+file when the user exits the program. Each time the program starts, it should retrieve the
+dictionary from the file and unpickle it.
+
+
+import pickle as Kabul_e
+def main():
+    vegetable_dictionary=load_dict()
+    existing_veget(vegetable_dictionary)
+    end=False
+    while not end:
+        show_menu()
+        choice=input("Enter your choice or 0 foe exit.")
+        if choice=="1":
+            add_veget( vegetable_dictionary)
+        elif choice=="2":
+            change_veget( vegetable_dictionary)
+        elif choice=="3":
+            delete_veget( vegetable_dictionary)
+        elif choice=="0":
+            end=True
+        else:
+            print("Enter a valid option")
+    save_dict(vegetable_dictionary)
+
+def add_veget(veget_dict):
+    veget_name=input("Enter the vegetable name:").lower()
+    if veget_name not in veget_dict:
+        veget_price=int(input("Enter the vegetable price:"))
+        veget_dict[veget_name]=veget_price
+        print("Information added.")
+    else:
+        print("It is already exist.")
+        
+def delete_veget(veget_dict):
+    veget_name=input("Enter the vegetable name:").lower()
+    if veget_name in veget_dict:
+        del veget_dict[veget_name]
+        print("Information deleted.")
+    else:
+        print("It is not exist.")
+
+def existing_veget(vegetable_dict):
+    print("Name    Price" + "\n----------------------------")
+    for Tarkari in vegetable_dict:
+        print(Tarkari,"     ",vegetable_dict[Tarkari])
+
+def change_veget(veget_dict):
+    veget_name=input("Enter the vegetable name:").lower()
+    if veget_name in veget_dict:
+        price=int(input("Enter the new price:"))
+        veget_dict[veget_name]=price
+        print("Information updated.")
+    else:
+        print("It is not exist")
+        
+def save_dict(veget_dict):
+    encrypt=open("veget.dat","wb")
+    kabul_e.dump(veget_dict,encrypt)
+    encrypt.close()
+    print("All changes saved.")
+    
+def show_menu():
+    print("\nEnter your choice number: ")
+    print("1) Add new")
+    print("2) Change existing")
+    print("3) Delete existing")
+    
+    
+def load_dict():
+    try:
+        vegetable_dict=open("veget.dat","rb")
+        uncrypted=kabul_e.load (vegetable_dict)
+        return uncrypted
+    except:
+        return{}
+    
+main()

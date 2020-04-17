@@ -1,0 +1,18 @@
+Capital Quiz
+Write a program that creates a dictionary containing the U.S. states as keys, and their capitals as values. (Use the Internet to get a list of the states and their capitals.) The program
+should then randomly quiz the user by displaying the name of a state and asking the user
+to enter that state’s capital. The program should keep a count of the number of correct and
+incorrect responses. (As an alternative to the U.S. states, the program can use the names of
+countries and their capitals.)
+
+
+def main():
+    countries_capitals={"Afghanistan":"Kabul","Iran":"Tehran","Frence":"Paris","Pakistan":"Islamabad","Germany":"Berlin","Spain":"Madrid","Turkey":"Ankara","India":"New Delhi","England":"London","Sudi Aribia":"Riadh"}
+    true_ans=0
+    for country in countries_capitals:
+        answer=input("what is the name of "+conuntry+"'s capital:").lower()
+        if answer ==countries_capitals[countery]:
+            true_ans+=1
+    print("Your correct answers :",true_ans)
+    print("your incorrect answers :",len(countries_capitals)-true_ans)
+main()

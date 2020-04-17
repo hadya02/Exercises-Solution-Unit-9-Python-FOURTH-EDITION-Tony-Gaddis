@@ -1,0 +1,13 @@
+Galilean Moons of Jupiter
+Write a program that creates a dictionary containing the names of the Galilean moons of
+Jupiter as keys and their mean radiuses (in kilometers) as values. 
+
+def main():
+    mean_read={"io":1821.6,"europa":1560.8,"ganymede":2634.1,"callisto":2410.3}
+    surface_grave={"io":1.796,"europa":1.314,"ganymede":1.428,"callisto":1.235}
+    orbital_per={"io":1.796,"europa":3.551,"ganymede":1.428,"callisto":16.689}
+    
+    moon_name=input("Enter the Jupiter moon name:").lower()
+    print("mean Radius:",mean_rad[moon_name],"\nSurface Gravity:",surface_grave[moon_name],"\nOrbital Period:",orbital_per[moon_name])
+
+main()
